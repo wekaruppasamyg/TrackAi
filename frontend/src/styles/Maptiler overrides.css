@@ -1,0 +1,64 @@
+/* ═══════════════════════════════════════════════════════════════
+   MapTiler SDK — dark theme overrides
+   Save as: src/styles/maptiler-overrides.css
+   Import once in your main entry (main.jsx / App.jsx)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* MapTiler's vector renderer draws into a canvas inside the
+   Leaflet container — these rules style the surrounding chrome
+   (attribution, any DOM controls it injects) to match dark UI. */
+
+.leaflet-container {
+  background: #0a0a0a !important;
+}
+
+/* MapTiler attribution pill */
+.maplibregl-ctrl-attrib,
+.leaflet-control-attribution {
+  background: rgba(10,10,10,0.75) !important;
+  color: rgba(255,255,255,0.35) !important;
+  font-size: 10px !important;
+  backdrop-filter: blur(6px);
+}
+
+.maplibregl-ctrl-attrib a,
+.leaflet-control-attribution a {
+  color: rgba(255,255,255,0.5) !important;
+}
+
+/* MapTiler logo control (required by free tier ToS — do not hide) */
+.maplibregl-ctrl-logo {
+  opacity: 0.6;
+  filter: brightness(1.4);
+}
+
+/* Leaflet zoom control — match dark theme */
+.leaflet-control-zoom a {
+  background: rgba(20,20,20,0.9) !important;
+  color: #e5e5e5 !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: rgba(99,102,241,0.2) !important;
+}
+
+/* Popup dark theme (applies across RouteHistory, NavigationView, MapDashboard, AdminMap) */
+.leaflet-popup-content-wrapper {
+  background: #1a1a1a !important;
+  color: #e5e5e5 !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.leaflet-popup-tip {
+  background: #1a1a1a !important;
+}
+
+.leaflet-popup-close-button {
+  color: rgba(255,255,255,0.5) !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #fff !important;
+}

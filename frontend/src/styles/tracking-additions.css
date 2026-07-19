@@ -1,0 +1,246 @@
+/* ─────────────────────────────────────────────────────────
+   LocationTracker — live tracking UI additions
+   Append these rules to your existing components.css
+   ───────────────────────────────────────────────────────── */
+
+/* Card layout */
+.tracker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.tracker-desc {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.tracker-warning {
+  font-size: 0.82rem;
+  color: #f59e0b;
+  margin-bottom: 10px;
+}
+
+/* LIVE badge next to heading */
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #22c55e;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: livePulse 1.4s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1;   transform: scale(1);    }
+  50%       { opacity: 0.5; transform: scale(1.35); }
+}
+
+/* Stats row while tracking */
+.tracker-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  padding: 10px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.tracker-stat {
+  display: flex;
+  flex-direction: column;
+  min-width: 80px;
+}
+
+.tracker-stat-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  opacity: 0.5;
+  margin-bottom: 2px;
+}
+
+.tracker-stat-value {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.ws-ok  { color: #22c55e; }
+.ws-off { color: #ef4444; }
+
+/* Action buttons */
+.tracker-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.btn-track-start,
+.btn-track-once,
+.btn-track-stop {
+  flex: 1;
+  min-width: 130px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.btn-track-start {
+  background: #22c55e;
+  color: #000;
+}
+
+.btn-track-once {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-track-stop {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn-track-start:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-track-once:hover  { opacity: 0.88; transform: translateY(-1px); }
+.btn-track-stop:hover  { opacity: 0.88; transform: translateY(-1px); }
+
+.btn-track-start:disabled,
+.btn-track-once:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.tracker-message {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.tracker-message--error { color: #f87171; }
+
+/* ─────────────────────────────────────────────────────────
+   AdminDashboard — live indicator column
+   Append to Admindashboardstyles.css
+   ───────────────────────────────────────────────────────── */
+
+.col-live { width: 90px; }
+
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.live-indicator--on {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #22c55e;
+}
+
+.live-indicator--off {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+}
+
+.live-indicator--none {
+  color: rgba(255,255,255,0.25);
+  border: 1px solid transparent;
+}
+
+.live-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: livePulse 1.4s ease-in-out infinite;
+}
+
+/* MapDashboard — live tracking badge in sidebar */
+.map-tracking-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: #22c55e;
+}
+
+.map-tracking-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: livePulse 1.4s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Leaflet pulsing live-position marker
+   (injected via DivIcon html)
+   ───────────────────────────────────────────────────────── */
+
+.map-live-marker {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.map-live-marker-dot {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid #fff;
+  z-index: 2;
+}
+
+.map-live-marker-pulse {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.35);
+  animation: markerPulse 1.8s ease-out infinite;
+  z-index: 1;
+}
+
+@keyframes markerPulse {
+  0%   { transform: translate(-50%,-50%) scale(0.6); opacity: 0.9; }
+  100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0;   }
+}

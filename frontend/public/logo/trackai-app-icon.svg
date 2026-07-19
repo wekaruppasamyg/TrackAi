@@ -1,0 +1,55 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1120"/>
+      <stop offset="1" stop-color="#151C34"/>
+    </linearGradient>
+    <linearGradient id="tai-pin" x1="30" y1="18" x2="170" y2="182" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6366F1"/>
+      <stop offset="0.55" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+    <radialGradient id="tai-core" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#06B6D4"/>
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg-grad)"/>
+  <rect x="1" y="1" width="510" height="510" rx="111" stroke="#6366F1" stroke-opacity="0.25" stroke-width="2"/>
+
+  <g transform="translate(56 56)">
+    <!-- radar waves -->
+    <g opacity="0.55" stroke="#06B6D4" stroke-width="9" stroke-linecap="round" fill="none">
+      <path d="M120,356 A112,40 0 0 0 280,356" opacity="0.35"/>
+      <path d="M84,356 A148,52 0 0 0 316,356" opacity="0.2"/>
+    </g>
+
+    <!-- pin body -->
+    <path d="M200,36 C122,36 60,98 60,176 C60,276 200,364 200,364 C200,364 340,276 340,176 C340,98 278,36 200,36 Z" fill="url(#tai-pin)"/>
+
+    <!-- inner AI core glow -->
+    <circle cx="200" cy="172" r="92" fill="url(#tai-core)"/>
+
+    <!-- circuit pattern -->
+    <g stroke="#0B1120" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.92">
+      <path d="M200,172 L200,116"/>
+      <path d="M200,172 L250,202"/>
+      <path d="M200,172 L150,202"/>
+      <path d="M200,116 L238,92"/>
+      <path d="M200,116 L162,92"/>
+      <path d="M250,202 L250,244"/>
+      <path d="M150,202 L150,244"/>
+    </g>
+    <g fill="#0B1120">
+      <circle cx="200" cy="172" r="15"/>
+      <circle cx="200" cy="116" r="10"/>
+      <circle cx="250" cy="202" r="10"/>
+      <circle cx="150" cy="202" r="10"/>
+      <circle cx="238" cy="92" r="8"/>
+      <circle cx="162" cy="92" r="8"/>
+      <circle cx="250" cy="244" r="8"/>
+      <circle cx="150" cy="244" r="8"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+{
+  "name": "trackkai-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx"
+  },
+  "dependencies": {
+    "@maptiler/leaflet-maptilersdk": "^4.1.1",
+    "@maptiler/sdk": "^4.0.2",
+    "@react-google-maps/api": "^2.20.8",
+    "@react-oauth/google": "^0.13.5",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "axios": "^1.6.2",
+    "framer-motion": "^11.18.2",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.23.0",
+    "maplibre-gl": "^5.24.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.30.4",
+    "three": "^0.160.0",
+    "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react": "^7.33.2",
+    "vite": "^5.0.8"
+  }
+}

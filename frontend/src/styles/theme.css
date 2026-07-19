@@ -1,0 +1,63 @@
+:root {
+  --bg-black: #070708;
+  --bg-near-black: #0d0e10;
+  --bg-surface: rgba(255, 255, 255, 0.04);
+  --bg-surface-2: rgba(255, 255, 255, 0.06);
+
+  --text-white: rgba(255, 255, 255, 0.96);
+  --text-dim: rgba(255, 255, 255, 0.72);
+  --text-muted: rgba(255, 255, 255, 0.55);
+
+  --border-sharp: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --transition-smooth: 180ms ease;
+
+  --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.55);
+  --shadow-mid: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+  --ring: rgba(255, 255, 255, 0.28);
+
+  /* Black/White animation theme */
+  --bw-glow: rgba(255, 255, 255, 1);
+  --bw-glow-2: rgba(255, 255, 255, 1);
+
+  /* ---- TrackAI signal system (GPS/HUD-inspired token set) ---- */
+  --tk-void: #05070a;
+  --tk-panel: #0d1117;
+  --tk-panel-raised: #131922;
+  --tk-line: #1a1f29;
+  --tk-line-bright: #262e3b;
+  --tk-signal: #39ff88;
+  --tk-signal-dim: rgba(57, 255, 136, 0.16);
+  --tk-signal-glow: rgba(57, 255, 136, 0.45);
+  --tk-amber: #ffb454;
+  --tk-text: #e8eaed;
+  --tk-text-dim: #9aa3b2;
+  --tk-text-mute: #5b6573;
+
+  --tk-font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --tk-font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --tk-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}

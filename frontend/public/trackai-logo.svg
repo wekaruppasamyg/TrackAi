@@ -1,0 +1,46 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tai-pin" x1="30" y1="18" x2="170" y2="182" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6366F1"/>
+      <stop offset="0.55" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+    <radialGradient id="tai-core" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#06B6D4"/>
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- radar waves emanating from the pin's point -->
+  <g opacity="0.55" stroke="#06B6D4" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M60,178 A56,20 0 0 0 140,178" opacity="0.35"/>
+    <path d="M42,178 A74,26 0 0 0 158,178" opacity="0.2"/>
+  </g>
+
+  <!-- pin body -->
+  <path d="M100,18 C61,18 30,49 30,88 C30,138 100,182 100,182 C100,182 170,138 170,88 C170,49 139,18 100,18 Z" fill="url(#tai-pin)"/>
+
+  <!-- inner AI core glow -->
+  <circle cx="100" cy="86" r="46" fill="url(#tai-core)"/>
+
+  <!-- circuit pattern etched into the pin -->
+  <g stroke="#0B1120" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.92">
+    <path d="M100,86 L100,58"/>
+    <path d="M100,86 L125,101"/>
+    <path d="M100,86 L75,101"/>
+    <path d="M100,58 L119,46"/>
+    <path d="M100,58 L81,46"/>
+    <path d="M125,101 L125,122"/>
+    <path d="M75,101 L75,122"/>
+  </g>
+  <g fill="#0B1120">
+    <circle cx="100" cy="86" r="7.5"/>
+    <circle cx="100" cy="58" r="5"/>
+    <circle cx="125" cy="101" r="5"/>
+    <circle cx="75" cy="101" r="5"/>
+    <circle cx="119" cy="46" r="4"/>
+    <circle cx="81" cy="46" r="4"/>
+    <circle cx="125" cy="122" r="4"/>
+    <circle cx="75" cy="122" r="4"/>
+  </g>
+</svg>
