@@ -4,7 +4,7 @@ import { useLocationStore, useGeofenceStore } from '../store'
 import { locationAPI, geofenceAPI } from '../services/api'
 import MapLibreContainer, { maplibregl } from './MapLibreContainer'
 import { Marker, Polyline, Circle, CircleMarker } from './MapLibreMarkers'
-import WeatherWidget from './WeatherWidget'
+import WeatherWidget from './Weatherwidget'
 import '../styles/map.css'
 
 // Live-location dot — Google-Maps/"share live location" style:
