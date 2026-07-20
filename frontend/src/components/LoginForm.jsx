@@ -5,7 +5,7 @@ import { useAuthStore } from '../store'
 import { authAPI } from '../services/api'
 import ManModelViewer from './Manmodelviewer'
 import '../styles/auth.css'
-import ForgotPassword from "./ForgotPassword"
+import ForgotPassword from "./Forgotpassword"
 
 export default function LoginForm({ onSuccess }) {
   const [username, setUsername] = useState('')
