@@ -52,7 +52,7 @@ app.include_router(analytics.router,     prefix="/api/analytics",     tags=["ana
 app.include_router(geofences.router,     prefix="/api/geofences",     tags=["geofences"])
 app.include_router(notifications.router, prefix="/api/notifications", tags=["notifications"])
 app.include_router(sos.router,           prefix="/api/sos",           tags=["sos"])
-app.include_router(realtime.router,      prefix="/api/ws",            tags=["realtime"])
+#app.include_router(realtime.router,      prefix="/api/ws",            tags=["realtime"])
 app.include_router(ws_router,            prefix="/api",               tags=["websocket"])
 app.include_router(ai_router,            prefix="/api/ai",            tags=["ai"])  # ← NEW
 
