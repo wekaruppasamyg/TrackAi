@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { GoogleLogin } from "@react-oauth/google"
 import { useAuthStore } from '../store'
 import { authAPI } from '../services/api'
-import ManModelViewer from './ManModelViewer'
+import ManModelViewer from './Manmodelviewer'
 import '../styles/auth.css'
 import ForgotPassword from "./ForgotPassword"
 
