@@ -16,3 +16,4 @@ aiofiles==24.1.0
 
 groq==0.30.0
 fpdf2==2.8.2
+google-auth==2.56.0
