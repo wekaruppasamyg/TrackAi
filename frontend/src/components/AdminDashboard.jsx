@@ -4,9 +4,9 @@ import { useAuthStore } from '../store'
 import AdminMap from './GoogleAdminMap'
 import UserLiveModal from './UserLiveModal'
 import RouteHistory from './RouteHistory'
-import AdminGeofencePanel from './AdminGeofencePanel'
+import AdminGeofencePanel from './Admingeofencepanel'
 import GeofenceAnalyticsPanel from './GeofenceAnalyticsPanel'
-import WeatherWidget from './WeatherWidget'
+import WeatherWidget from './Weatherwidget'
 
 const STALE_MS = 300_000
 
