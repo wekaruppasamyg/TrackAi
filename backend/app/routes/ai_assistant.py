@@ -1,6 +1,6 @@
 """
 app/routes/ai_assistant.py
-TrackAI Advanced AI Assistant - Groq (Llama 3.3-70B)
+TrackAI Advanced AI Assistant - Groq
 
 Features:
   Level 1: Reverse geocoding, Natural language commands, Proactive alerts
@@ -24,7 +24,10 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
-GROQ_MODEL   = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+DEFAULT_GROQ_MODEL = "openai/gpt-oss-120b"
+# A manually configured environment variable still takes precedence, but a
+# retired model name must not take the whole assistant offline.
+GROQ_MODEL = os.getenv("GROQ_MODEL", DEFAULT_GROQ_MODEL)
 groq_client  = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
 SYSTEM_PROMPT = """You are TrackAI Assistant - an advanced intelligent GPS tracking AI with FULL real-time data access.
@@ -388,9 +391,22 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db), current_user
             f"REAL-TIME LIVE DATA:\n{real_data}\n\n"
             f"USER MESSAGE: {last_msg}\n\n"
             f"Answer using real data above. Be specific, warm and friendly.")})
-        resp  = groq_client.chat.completions.create(
-            model=GROQ_MODEL, messages=groq_msgs,
-            temperature=0.75, max_tokens=700, top_p=0.95)
+        try:
+            resp = groq_client.chat.completions.create(
+                model=GROQ_MODEL, messages=groq_msgs,
+                temperature=0.75, max_tokens=700, top_p=0.95)
+        except Exception as model_error:
+            # Existing Render services can retain an old GROQ_MODEL value
+            # (for example llama-3.3-70b-versatile) after a redeploy.
+            # Retry once with the supported project default in that case.
+            error_text = str(model_error).lower()
+            retired_model = "model_not_found" in error_text or "does not exist" in error_text
+            if GROQ_MODEL == DEFAULT_GROQ_MODEL or not retired_model:
+                raise
+            logger.warning("Configured Groq model %s is unavailable; using %s", GROQ_MODEL, DEFAULT_GROQ_MODEL)
+            resp = groq_client.chat.completions.create(
+                model=DEFAULT_GROQ_MODEL, messages=groq_msgs,
+                temperature=0.75, max_tokens=700, top_p=0.95)
         reply = resp.choices[0].message.content.strip()
         actions = [{"type":m.group(1).split(":")[0],
                     "value":m.group(1).split(":")[1] if ":" in m.group(1).split(":",1)[-1:][0:1] else None}
