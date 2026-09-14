@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: trackkai-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    disk:
+      name: sqlite-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:////data/trackkai.db
+      - key: ENVIRONMENT
+        value: production
+      - key: JWT_SECRET_KEY
+        generateValue: true          # Render auto-generates a secure secret
+      - key: GROQ_API_KEY
+        sync: false                  # Set manually in Render dashboard
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: GOOGLE_CLIENT_ID
+        sync: false                  # Set manually in Render dashboard
+      - key: BREVO_API_KEY
+        sync: false                  # Set manually in Render dashboard
+      - key: BREVO_SENDER_EMAIL
+        sync: false                  # Set manually in Render dashboard
+      - key: BREVO_SENDER_NAME
+        value: TrackAi
+      - key: ALLOWED_ORIGINS
+        value: https://track-ai-tau.vercel.app
+

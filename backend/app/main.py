@@ -3,6 +3,7 @@ TrackAI Backend - FastAPI Application
 Main entry point for the GPS tracking and analytics platform
 """
 
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
@@ -29,13 +30,19 @@ app = FastAPI(
     redirect_slashes=False,
 )
 
+# CORS: base origins always allowed; add extra from ALLOWED_ORIGINS env var
+_base_origins = [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://track-ai-tau.vercel.app",
+]
+_extra = os.getenv("ALLOWED_ORIGINS", "")
+_extra_origins = [o.strip() for o in _extra.split(",") if o.strip()]
+ALLOWED_ORIGINS = list(dict.fromkeys(_base_origins + _extra_origins))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:5173",
-        "https://track-ai-tau.vercel.app",
-    ],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
